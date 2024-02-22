@@ -16,8 +16,12 @@ public class Dragon21 {
         y -=1;
     }
     void detectCollision(int x, int y){
-        if ((x < 0 || x >= width)||(y < 0 || y >= height)) {
+        if ((x < 0 || x > width)||(y < 0 || y > height)) {
             System.out.println("GAME OVER!!");
+            System.exit(0);
         }
+    }
+    void printPosition(){
+        System.out.printf("Dragon Position : X = %d, Y= %d\n",x,y);
     }
 }
