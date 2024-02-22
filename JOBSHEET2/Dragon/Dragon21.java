@@ -24,4 +24,5 @@ public class Dragon21 {
     void printPosition(){
         System.out.printf("Dragon Position : X = %d, Y= %d\n",x,y);
     }
+    
 }

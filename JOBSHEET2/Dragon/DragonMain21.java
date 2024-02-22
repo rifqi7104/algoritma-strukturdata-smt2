@@ -30,4 +30,5 @@ public class DragonMain21 {
             dg1.detectCollision(dg1.x, dg1.y);    
         }    
     }
+    
 }
