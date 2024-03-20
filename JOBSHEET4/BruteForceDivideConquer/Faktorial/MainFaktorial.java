@@ -1,4 +1,5 @@
 package JOBSHEET4.BruteForceDivideConquer.Faktorial;
+
 import java.util.Scanner;
 
 
