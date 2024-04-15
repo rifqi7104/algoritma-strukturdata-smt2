@@ -52,7 +52,7 @@ public class Gudang21 {
     }
 
     public Barang21 ambilBarang(){
-        if (!cekPenuh()) {
+        if (!cekKosong()) {
             Barang21 delete = tumpukan[top];
             top--;
             System.out.println("Barang "+delete.nama+" diambil dari Gudang");
@@ -65,7 +65,7 @@ public class Gudang21 {
     }
 
     public Barang21 lihatBarangTeratas(){
-        if (!cekPenuh()) {
+        if (!cekKosong()) {
             Barang21 barangTeratas = tumpukan[top];
             System.out.println("Barang teratas : "+barangTeratas.nama);
             return barangTeratas;
@@ -75,8 +75,19 @@ public class Gudang21 {
         }
     }
 
+    public Barang21 lihatBarangTerbawah(){
+        if (!cekKosong()) {
+            Barang21 barangTerbawah = tumpukan[0];
+            System.out.println("Barang terbawah : "+barangTerbawah.nama);
+            return barangTerbawah;
+        }else {
+            System.out.println("Tumpukan barang kosong.");
+            return null;
+        }
+    }
+
     public void tampilkanBarang(){
-        if (!cekPenuh()) {
+        if (!cekKosong()) {
             System.out.println("Rincian tumpukan barang di Gudang : ");
             for (int i = top; i >= 0; i--) {
                 System.out.printf("Kode %d : %s (Kategori %s)\n", tumpukan[i].kode,tumpukan[i].nama, tumpukan[i].kategori);
@@ -84,5 +95,37 @@ public class Gudang21 {
         }else {
             System.out.println("Tumpukan barang kosong.");
         }
+    }
+
+    public void cariBarang(int cari){
+            int count = 0;
+            for (int i = 0; i < tumpukan.length; i++) {
+                if (cari == tumpukan[i].kode) {
+                    System.out.println("Barang ditemukan!");
+                    System.out.printf("Kode %d : %s (Kategori %s)\n", tumpukan[i].kode,tumpukan[i].nama, tumpukan[i].kategori);
+                    break;
+                }else{
+                    count++;
+                }
+            }
+            if(count == tumpukan.length){
+                System.out.println("Barang yang Anda cari tidak ditemukan.");
+            }
+    }
+
+    public void cariNamaBarang(String cari){
+            int count = 0;
+            for (int i = 0; i < tumpukan.length; i++) {
+                if (cari.equalsIgnoreCase(tumpukan[i].nama)) {
+                    System.out.println("Barang ditemukan!");
+                    System.out.printf("Kode %d : %s (Kategori %s)\n", tumpukan[i].kode,tumpukan[i].nama, tumpukan[i].kategori);
+                    break;
+                }else{
+                    count++;
+                }
+            }
+            if(count == tumpukan.length){
+                System.out.println("Barang yang Anda cari tidak ditemukan.");
+            }
     }
 }
